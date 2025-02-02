@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import colors from '../colors'
 
-const CommandPrompt = ({ log, setCommand, enterCommand }) => {
+const CommandPrompt = ({ log, command, setCommand, enterCommand }) => {
     const logRef = useRef(null);
 
     const scrollLog = () => {
@@ -62,10 +62,12 @@ const CommandPrompt = ({ log, setCommand, enterCommand }) => {
                     >
                         <Card.Body>
                             <input
+                                value={command}
                                 onChange={(e) => setCommand(e.target.value)}
                                 onKeyDown={(event) => {
                                     if (event.key === "Enter") {
                                         enterCommand();
+                                        setCommand("");
                                         scrollLog();
                                     }
                                 }}

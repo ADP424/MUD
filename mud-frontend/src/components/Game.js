@@ -74,6 +74,7 @@ const Game = () => {
                     <Row>
                         <CommandPrompt
                             log={log}
+                            command={command}
                             setCommand={setCommand}
                             enterCommand={enterCommand}
                         />
