@@ -1,21 +1,19 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import colors from '../colors'
 
 const MiniMap = ({ dungeonMap }) => {
     return (
-        <Container 
+        <Container
             fluid className="d-flex flex-column" 
             style={{
-                width: '100vw',
+                width: '100vh',
                 paddingTop: '1vh', 
                 paddingBottom: '1vh'
             }}
         >
-            <Card 
+            <Card
                 className="mb-3" 
                 style={{
                     backgroundColor: colors.background,

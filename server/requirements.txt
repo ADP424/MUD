@@ -1,0 +1,8 @@
+black
+flake8
+flake8-pyproject
+flask
+flask-cors
+flask-socketio
+requests
+websocket-client

@@ -10,6 +10,7 @@ const CommandPrompt = ({ log, setCommand, enterCommand }) => {
         <Container 
             fluid className="d-flex flex-column" 
             style={{ 
+                width: '100vh', 
                 height: '100vh', 
                 paddingTop: '1vh', 
                 paddingBottom: '1vh'

@@ -23,6 +23,7 @@ const Game = () => {
         ['.', '.', '.', '.', '.', '.', '.', '.', ],
         ['.', '.', '.', '.', '.', '.', '.', '.', ],
     ]);
+    const [currentRoom, setCurrentRoom] = useState(null);
 
     // player info
     const [playerName, setPlayerName] = useState("");
@@ -46,29 +47,34 @@ const Game = () => {
 
     return (
         <Container>
-        <Row>
-            <Col md={3} lg={3}>
+            <Row>
+                <Col md={3} lg={3}>
 
-            </Col>
+                </Col>
 
-            <Col md={6} lg={6}>
-                <Container>
-                    <CommandPrompt
-                        log={log}
-                        setCommand={setCommand}
-                        enterCommand={enterCommand}
-                    />
-                </Container>
-            </Col>
+                <Col md={6} lg={6}>
+                    <Row>
+                        <CommandPrompt
+                            log={log}
+                            setCommand={setCommand}
+                            enterCommand={enterCommand}
+                        />
+                    </Row>
+                </Col>
 
-            <Col md={3} lg={3}>
-                <Row md={4} lg={4}>
-                    <MiniMap
-                        dungeonMap={dungeonMap}
-                    />
-                </Row>
-            </Col>
-        </Row>
+                <Col md={3} lg={3}>
+                    <Row md={4} lg={4}>
+                        <MiniMap
+                            dungeonMap={dungeonMap}
+                        />
+                    </Row>
+                    <Row md={8} lg={8}>
+                        <MiniMap
+                            dungeonMap={dungeonMap}
+                        />
+                    </Row>
+                </Col>
+            </Row>
         </Container>
     );
 };
