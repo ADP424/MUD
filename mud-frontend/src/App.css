@@ -10,3 +10,8 @@ body {
   text-align: center;
   gap: 10px;
 }
+
+.scroll {
+  scrollbar-width: none;
+  overflow-y: scroll;
+}
