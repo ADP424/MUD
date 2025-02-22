@@ -13,6 +13,7 @@ socketio = SocketIO(app, cors_allowed_origins="*")
 
 game = GameState()
 
+
 @socketio.on("join_game")
 def join_game(data: dict):
     player_name = data["player_name"]
@@ -22,6 +23,7 @@ def join_game(data: dict):
 
     join_room("dungeon")
     emit("map_update", {"map": game.map}, room="dungeon")
+
 
 @socketio.on("player_move")
 def player_move(data: dict):
@@ -36,9 +38,11 @@ def player_move(data: dict):
         logger.info(f"Player '{player_name}' tried to move illegally via '{direction}'.")
         emit("player_move_failed", {"player": player_name})
 
+
 @app.route("/get_game_state", methods=["GET"])
 def get_game_state():
     return jsonify(game.to_dict())
+
 
 if __name__ == "__main__":
     logger.info("Booting server...")

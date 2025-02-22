@@ -1,5 +1,6 @@
 from model.Room import Room
 from model.Player import Player
+from model.PlayerCharacter import PlayerCharacter
 from model.NPC import NPC
 
 
@@ -8,9 +9,7 @@ class GameState:
     def __init__(self):
         self.players: dict[str, Player] = {}
         self.map: list[list[Room]] = [
-            [
-                Room("Kitchen", 'K', "Yum yum.", NPCs=[NPC("Goober", 10), NPC("Schmoober", 12)])
-            ]
+            [Room("Kitchen", "K", "Yum yum.", NPCs=[NPC("Goober", 10), NPC("Schmoober", 12)])]
         ]
 
     def add_player(self, player_name: str):
@@ -37,13 +36,13 @@ class GameState:
         player = self.players[player_name]
         x, y = player.coordinates
         match direction:
-            case 'N':
+            case "N":
                 return self._move_player_to_room(player, (x, y - 1))
-            case 'S':
+            case "S":
                 return self._move_player_to_room(player, (x, y + 1))
-            case 'E':
+            case "E":
                 return self._move_player_to_room(player, (x + 1, y))
-            case 'W':
+            case "W":
                 return self._move_player_to_room(player, (x - 1, y))
             case _:
                 return None
@@ -53,9 +52,9 @@ class GameState:
         if 0 <= y < len(self.map) and 0 <= x < len(self.map[y]):
             player.coordinates = new_coordinates
             return self.map[y][x]
-        
+
     def to_dict(self):
         return {
             "players": {player.username: player.to_dict() for player in self.players.values()},
-            "map": [[room.to_dict() for room in row] for row in self.map]
+            "map": [[room.to_dict() for room in row] for row in self.map],
         }

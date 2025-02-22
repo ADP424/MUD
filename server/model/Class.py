@@ -4,6 +4,4 @@ class Class:
         self.name = name
 
     def to_dict(self):
-        return {
-            "name": self.name
-        }
+        return {"name": self.name}

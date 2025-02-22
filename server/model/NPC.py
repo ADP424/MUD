@@ -5,7 +5,4 @@ class NPC:
         self.health = health
 
     def to_dict(self):
-        return {
-            "name": self.name,
-            "health": self.health
-        }
+        return {"name": self.name, "health": self.health}
